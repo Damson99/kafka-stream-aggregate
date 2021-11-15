@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'com.cloud.kafka-stream-aggregate' is invalid and this project uses 'com.cloud.kafkastreamaggregate' instead.
+* The original package name 'com.cloud.kafka-stream-aggregate' is invalid and this project uses 'com.cloud.kafkastream' instead.
 
 # Getting Started
 

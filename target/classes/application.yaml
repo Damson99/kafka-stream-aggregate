@@ -1,18 +1,67 @@
+#spring:
+#  cloud:
+#    stream:
+#      bindings:
+#        words-input-channel:
+#          destination: streaming-words-topic
+#      kafka:
+#        streams:
+#          binder:
+#            brokers: localhost:9092
+#            configuration:
+#              commit.interval.ms: 10000
+#              state.dir: state-store
+#              default:
+#                key:
+#                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+#                value:
+#                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+
+
+#spring:
+#  cloud:
+#    stream:
+#      bindings:
+#        pos-invoice-input-channel:
+#          destination: avro-pos-invoice-topic
+#        notification-output-channel:
+#          destination: loyalty-topic
+#      kafka:
+#        streams:
+#          binder:
+#            brokers:  localhost:9092
+#            configuration:
+#              schema.registry.url: http://localhost:8081
+#              commit.interval.ms: 10000
+#              state.dir: state-store
+#              default:
+#                key:
+#                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+#                value:
+#                  serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+#
+
+
 spring:
   cloud:
     stream:
       bindings:
-        words-input-channel:
-          destination: streaming-words-topic
+        employee-input-channel:
+          destination: employees-topic
       kafka:
         streams:
           binder:
-            brokers: localhost:9092
+            brokers:  localhost:9092
             configuration:
+              schema.registry.url: http://localhost:8081
               commit.interval.ms: 10000
               state.dir: state-store
               default:
                 key:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
                 value:
-                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+                  serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+  config:
+    activate:
+      on-profile=employees-topic:
+#      on-profile=pos-invoice-topic:
