@@ -21,20 +21,13 @@
 		<spring-cloud-stream-binder-kafka-stream.version>3.1.4</spring-cloud-stream-binder-kafka-stream.version>
 		<avro-maven-plugin.version>1.8.2</avro-maven-plugin.version>
 		<kafka-streams-avro-serde.version>6.2.0</kafka-streams-avro-serde.version>
-		<org.apache.avro.version>1.9.2</org.apache.avro.version>
+		<org.apache.avro.version>1.11.0</org.apache.avro.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
 		</dependency>
 
 		<dependency>

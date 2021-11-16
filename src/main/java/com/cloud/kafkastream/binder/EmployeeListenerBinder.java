@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Profile;
 @Profile("employees-topic")
 public interface EmployeeListenerBinder {
 
-    @Input("employee-input-topic")
+    @Input("employee-input-channel")
     KStream<String, Employee> employeeInputStream();
 }

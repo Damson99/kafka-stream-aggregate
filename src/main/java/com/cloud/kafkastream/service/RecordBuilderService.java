@@ -28,7 +28,7 @@ public class RecordBuilderService {
         return departmentAggregateBuilder(0, 0, 0D);
     }
 
-    public DepartmentAggregate aggregate(Employee emp, DepartmentAggregate aggVal) {
+    public DepartmentAggregate adder(Employee emp, DepartmentAggregate aggVal) {
 
         return departmentAggregateBuilder(
                 aggVal.getEmployeeCount() + 1,
@@ -37,10 +37,19 @@ public class RecordBuilderService {
         );
     }
 
+    public DepartmentAggregate subtractor(Employee emp, DepartmentAggregate aggVal) {
+
+        return departmentAggregateBuilder(
+                aggVal.getEmployeeCount() - 1,
+                aggVal.getTotalSalary() - emp.getSalary(),
+                (aggVal.getAvgSalary() - emp.getSalary()) / (aggVal.getEmployeeCount() -1D)
+        );
+    }
+
     private DepartmentAggregate departmentAggregateBuilder(Integer empCount, Integer totalSalary, Double avgSalary) {
 
         return DepartmentAggregate.newBuilder()
-//                increment value +1
+//                increment value +1 or -1
                 .setEmployeeCount(empCount)
 //                setting total salary
                 .setTotalSalary(totalSalary)
