@@ -43,6 +43,12 @@
 
 
 spring:
+#  devtools:
+#    restart:
+#      enabled: false
+  profiles:
+    active: employees-topic
+#          pos-invoice-topic
   cloud:
     stream:
       bindings:
@@ -51,7 +57,7 @@ spring:
       kafka:
         streams:
           binder:
-            brokers:  localhost:9092
+            brokers: localhost:9092
             configuration:
               schema.registry.url: http://localhost:8081
               commit.interval.ms: 10000
@@ -61,7 +67,3 @@ spring:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
                 value:
                   serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
-  config:
-    activate:
-      on-profile=employees-topic:
-#      on-profile=pos-invoice-topic:
