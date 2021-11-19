@@ -6,9 +6,11 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.streams.processor.TimestampExtractor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Slf4j
 @Configuration
+@Profile("user-click-topic")
 public class UserClickTimeExtractor implements TimestampExtractor {
 
 

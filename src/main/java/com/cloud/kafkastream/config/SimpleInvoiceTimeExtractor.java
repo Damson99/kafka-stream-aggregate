@@ -5,7 +5,9 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.streams.processor.TimestampExtractor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
+@Profile("simple-invoice-topic")
 @Configuration
 public class SimpleInvoiceTimeExtractor implements TimestampExtractor {
     @Override

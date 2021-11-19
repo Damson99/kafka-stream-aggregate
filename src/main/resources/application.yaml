@@ -97,6 +97,8 @@
 ##                name of the bean which is created in the SimpleInvoiceTimeExtractor class
 #                timestampExtractorBeanName: invoiceTimesExtractor
 spring:
+  profiles:
+    active: user-click-topic
   cloud:
     stream:
       bindings:
